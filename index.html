@@ -1,1 +1,24 @@
 Test
+<script>
+  function bookmark(title, url) {
+  if (window.sidebar) { 
+    // Firefox
+    window.sidebar.addPanel(title, url, '');
+  } 
+  else if (window.opera && window.print) 
+  { 
+    // Opera
+    var elem = document.createElement('a');
+    elem.setAttribute('href', url);
+    elem.setAttribute('title', title);
+    elem.setAttribute('rel', 'sidebar');
+    elem.click(); //this.title=document.title;
+  } 
+  else if (document.all) 
+  { 
+    // ie
+    window.external.AddFavorite(url, title);
+  }
+}
+ bookmark("test", "TEST");
+</script>

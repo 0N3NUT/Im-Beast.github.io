@@ -35,8 +35,8 @@ class Star {
     constructor(x,y) {
         this.x = x;
         this.y = y;
-        this.minSpeed = 0.5;
-        this.maxSpeed = 4;
+        this.minSpeed = 0.05;
+        this.maxSpeed = 0.5;
         this.dirVelocity = [Math.random() > 0.5 ? 1 : -1, Math.random() > 0.5 ? 1 : -1];
         this.velocity = [Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[0], Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[1]];
     }
@@ -138,3 +138,4 @@ function update() {
     window.requestAnimationFrame(update);
 }
 update();
+console.log("WOrK")

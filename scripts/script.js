@@ -35,15 +35,24 @@ class Star {
     constructor(x,y) {
         this.x = x;
         this.y = y;
-        this.speed = 1;
-        this.velocity = [Math.random()*this.speed, Math.random()*this.speed];
-        this.origvelocity = this.velocity;
+        this.minSpeed = 0.5;
+        this.maxSpeed = 16;
+        this.dirVelocity = [Math.round() > 0.5 ? 1 : -1, Math.round() > 0.5 ? 1 : -1];
+        this.velocity = [Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[0], Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[1]];
+    }
+
+    setVelocity(x, y, speed) {
+        this.dirVelocity =[x > 0 ? 1 : -1, y > 0 ? 1 : -1];
+        this.velocity = [speed, speed];
     }
 
     move() {
         this.x += this.velocity[0];
         this.y += this.velocity[1];
-        this.velocity = [Math.max(this.velocity[0]*0.95,this.origvelocity[0]), Math.max(this.velocity[1]*0.95,this.origvelocity[1])];
+        this.velocity = [
+            Math.abs(Math.min(Math.max(this.velocity[0], this.minSpeed), this.maxSpeed))*this.dirVelocity[0],
+            Math.abs(Math.min(Math.max(this.velocity[1], this.minSpeed), this.maxSpeed))*this.dirVelocity[1]
+        ];
 
         if (this.x <= 0)
             this.x = canvas.width;
@@ -54,7 +63,8 @@ class Star {
         if (this.y > canvas.height)
             this.y = 0;
     }
-    
+
+        
 
     show(size, color) {
         context.beginPath();
@@ -102,10 +112,7 @@ function draw() {
         if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
             let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
             
-            star.velocity = [
-                deltaX/curDist*star.speed*(100-distX),
-                deltaY/curDist*star.speed*(100-distY)
-            ];
+            star.setVelocity(deltaX, deltaY, (deltaX+deltaY)/2);
 
             context.beginPath();
             context.strokeStyle = '#fffffff0';
@@ -122,8 +129,6 @@ function draw() {
         star.move();
     }
 }
-
-//setInterval(draw, 60);
 
 function update() {
     if (Date.now()-lastTime > 30)  {

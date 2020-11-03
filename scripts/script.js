@@ -101,10 +101,10 @@ function draw() {
 
         if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
             let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
-            console.log(deltaX/curDist);
+            
             star.velocity = [
-                deltaX/curDist*star.speed,
-                deltaY/curDist*star.speed
+                deltaX/curDist*star.speed*25,
+                deltaY/curDist*star.speed*25
             ];
 
             context.beginPath();

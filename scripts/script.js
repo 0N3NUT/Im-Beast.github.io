@@ -37,12 +37,13 @@ class Star {
         this.y = y;
         this.speed = 1;
         this.velocity = [Math.random()*this.speed, Math.random()*this.speed];
+        this.origvelocity = this.velocity;
     }
 
     move() {
         this.x += this.velocity[0];
         this.y += this.velocity[1];
-        this.velocity = [Math.max(this.velocity[0]*0.7,this.speed), Math.max(this.velocity[1]*0.7,this.speed)];
+        this.velocity = [Math.max(this.velocity[0]*0.7,this.origvelocity[0]), Math.max(this.velocity[1]*0.7,this.origvelocity[1])];
 
         if (this.x <= 0)
             this.x = canvas.width;
@@ -100,8 +101,9 @@ function draw() {
 
         if (Math.abs(distX) < dist && Math.abs(distY) < dist && (deltaX != 0 || deltaY != 0)) {
             star.velocity = [
-                deltaX*star.speed,
-                deltaY*star.speed
+                let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
+                deltaX/curDist*star.speed,
+                deltaY/curDist*star.speed
             ];
 
             context.beginPath();

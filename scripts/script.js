@@ -138,3 +138,4 @@ function update() {
     window.requestAnimationFrame(update);
 }
 update();
+console.log("work");

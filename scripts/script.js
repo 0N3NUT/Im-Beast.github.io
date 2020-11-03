@@ -51,7 +51,6 @@ class Star {
             Math.abs(Math.min(Math.max(this.velocity[0], this.minSpeed), this.maxSpeed))*this.dirVelocity[0],
             Math.abs(Math.min(Math.max(this.velocity[1], this.minSpeed), this.maxSpeed))*this.dirVelocity[1]
         ];
-        console.log(this.velocity);
 
         this.x += this.velocity[0];
         this.y += this.velocity[1];
@@ -140,4 +139,4 @@ function update() {
     window.requestAnimationFrame(update);
 }
 update();
-console.log("WfOrK")
+console.log("W54K")

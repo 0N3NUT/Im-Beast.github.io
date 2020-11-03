@@ -110,10 +110,8 @@ function draw() {
 
         let dist = 100;
 
-        if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
-            let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
-            
-            star.setVelocity(distX, distY, Math.abs(deltaX+deltaY)/2);
+        if (Math.abs(distX) < dist && Math.abs(distY) < dist) {           
+            star.setVelocity(distX, distY, Math.abs(deltaX+deltaY));
 
             context.beginPath();
             context.strokeStyle = '#fffffff0';
@@ -139,4 +137,4 @@ function update() {
     window.requestAnimationFrame(update);
 }
 update();
-console.log("W54K")
+console.log("WGKOrK")

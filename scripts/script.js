@@ -53,9 +53,9 @@ class Star {
     }
     
 
-    show(size) {
+    show(size, color) {
         context.beginPath();
-        context.fillStyle = 'white';
+        context.fillStyle = color;
         context.arc(this.x, this.y, size, 0, Math.PI*2);
         context.fill();
     }
@@ -99,14 +99,15 @@ function draw() {
             ]
 
             context.beginPath();
-            context.strokeStyle = '#ffffff0f';
+            context.strokeStyle = '#fffffff0';
             context.moveTo(mouseX, mouseY);
             context.lineTo(mouseX-distX/1.1, mouseY-distY/1.1);
             context.stroke();
             
-            star.show(4);
+            star.show(3, 'white');
+            star.show(2, 'black');
         } else {
-            star.show(2);
+            star.show(2, 'white);
         }
         
         star.move();

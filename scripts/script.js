@@ -37,7 +37,7 @@ class Star {
         this.y = y;
         this.minSpeed = 0.5;
         this.maxSpeed = 16;
-        this.dirVelocity = [Math.round() > 0.5 ? 1 : -1, Math.round() > 0.5 ? 1 : -1];
+        this.dirVelocity = [Math.random() > 0.5 ? 1 : -1, Math.random() > 0.5 ? 1 : -1];
         this.velocity = [Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[0], Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[1]];
     }
 
@@ -112,12 +112,12 @@ function draw() {
         if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
             let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
             
-            star.setVelocity(deltaX, deltaY, (deltaX+deltaY)/2);
+            star.setVelocity(deltaX, deltaY, Math.abs(deltaX+deltaY)/2);
 
             context.beginPath();
             context.strokeStyle = '#fffffff0';
             context.moveTo(mouseX, mouseY);
-            context.lineTo(mouseX-distX/1.1, mouseY-distY/1.1);
+            context.lineTo(mouseX-distX, mouseY-distY);
             context.stroke();
             
             star.show(3, 'white');
@@ -138,4 +138,3 @@ function update() {
     window.requestAnimationFrame(update);
 }
 update();
-console.log("work");

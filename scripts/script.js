@@ -94,8 +94,8 @@ function draw() {
 
         if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
             star.velocity = [
-                -distX/dist*star.speed,
-                -distY/dist*star.speed
+                distX/dist*star.speed,
+                distY/dist*star.speed
             ]
 
             context.beginPath();
@@ -107,7 +107,7 @@ function draw() {
             star.show(3, 'white');
             star.show(2, 'black');
         } else {
-            star.show(2, 'white);
+            star.show(2, 'white');
         }
         
         star.move();

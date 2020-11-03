@@ -47,12 +47,14 @@ class Star {
     }
 
     move() {
-        this.x += this.velocity[0];
-        this.y += this.velocity[1];
         this.velocity = [
             Math.abs(Math.min(Math.max(this.velocity[0], this.minSpeed), this.maxSpeed))*this.dirVelocity[0],
             Math.abs(Math.min(Math.max(this.velocity[1], this.minSpeed), this.maxSpeed))*this.dirVelocity[1]
         ];
+        console.log(this.velocity);
+
+        this.x += this.velocity[0];
+        this.y += this.velocity[1];
 
         if (this.x <= 0)
             this.x = canvas.width;
@@ -138,4 +140,4 @@ function update() {
     window.requestAnimationFrame(update);
 }
 update();
-console.log("dWOrK")
+console.log("WfOrK")

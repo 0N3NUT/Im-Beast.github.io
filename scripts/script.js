@@ -36,7 +36,7 @@ class Star {
         this.x = x;
         this.y = y;
         this.minSpeed = 0.5;
-        this.maxSpeed = 16;
+        this.maxSpeed = 4;
         this.dirVelocity = [Math.random() > 0.5 ? 1 : -1, Math.random() > 0.5 ? 1 : -1];
         this.velocity = [Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[0], Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[1]];
     }

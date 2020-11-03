@@ -35,8 +35,8 @@ class Star {
     constructor(x,y) {
         this.x = x;
         this.y = y;
-        this.minSpeed = 0.05;
-        this.maxSpeed = 0.5;
+        this.minSpeed = 0.5;
+        this.maxSpeed = 1.5;
         this.dirVelocity = [Math.random() > 0.5 ? 1 : -1, Math.random() > 0.5 ? 1 : -1];
         this.velocity = [Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[0], Math.max(Math.random()*this.maxSpeed,this.minSpeed)*this.dirVelocity[1]];
     }
@@ -48,8 +48,8 @@ class Star {
 
     move() {
         this.velocity = [
-            Math.abs(Math.min(Math.max(this.velocity[0], this.minSpeed), this.maxSpeed))*this.dirVelocity[0],
-            Math.abs(Math.min(Math.max(this.velocity[1], this.minSpeed), this.maxSpeed))*this.dirVelocity[1]
+            Math.abs(Math.min(Math.max(this.velocity[0]*0.9, this.minSpeed), this.maxSpeed))*this.dirVelocity[0],
+            Math.abs(Math.min(Math.max(this.velocity[1]*0.9, this.minSpeed), this.maxSpeed))*this.dirVelocity[1]
         ];
 
         this.x += this.velocity[0];
@@ -137,4 +137,4 @@ function update() {
     window.requestAnimationFrame(update);
 }
 update();
-console.log("WGKOrK")
+console.log("LOLSK")

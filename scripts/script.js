@@ -53,10 +53,10 @@ class Star {
     }
     
 
-    show() {
+    show(size) {
         context.beginPath();
         context.fillStyle = 'white';
-        context.arc(this.x, this.y, 2, 0, Math.PI*2);
+        context.arc(this.x, this.y, size, 0, Math.PI*2);
         context.fill();
     }
 }
@@ -99,13 +99,16 @@ function draw() {
             ]
 
             context.beginPath();
-            context.strokeStyle = `#${Math.round(Math.random()*16777215).toString(16)}`;
+            context.strokeStyle = '#ffffff0f';
             context.moveTo(mouseX, mouseY);
             context.lineTo(mouseX-distX/1.1, mouseY-distY/1.1);
             context.stroke();
+            
+            star.show(4);
+        } else {
+            star.show(2);
         }
-
-        star.show();
+        
         star.move();
     }
 }

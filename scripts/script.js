@@ -100,8 +100,8 @@ function draw() {
         let dist = 100;
 
         if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
+            let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
             star.velocity = [
-                let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
                 deltaX/curDist*star.speed,
                 deltaY/curDist*star.speed
             ];

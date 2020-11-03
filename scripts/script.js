@@ -63,11 +63,15 @@ class Star {
 
 var mouseX = -500;
 var mouseY = -500;
- 
+var deltaX = 0;
+var deltaY = 0;
+
 document.addEventListener('mousemove', onMouseUpdate, false);
 document.addEventListener('mouseenter', onMouseUpdate, false);
     
 function onMouseUpdate(e) {
+    deltaX = e.pageX-mouseX;
+    deltaY = e.pageY-mouseY;
     mouseX = e.pageX;
     mouseY = e.pageY;
 }
@@ -92,11 +96,11 @@ function draw() {
 
         let dist = 100;
 
-        if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
+        if (Math.abs(distX) < dist && Math.abs(distY) < dist && (deltaX != 0 || deltaY != 0)) {
             star.velocity = [
-                distX/dist*star.speed,
-                distY/dist*star.speed
-            ]
+                deltaX*star.speed,
+                deltaY*star.speed
+            ];
 
             context.beginPath();
             context.strokeStyle = '#fffffff0';

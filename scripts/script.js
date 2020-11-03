@@ -112,7 +112,7 @@ function draw() {
         if (Math.abs(distX) < dist && Math.abs(distY) < dist) {
             let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
             
-            star.setVelocity(deltaX, deltaY, Math.abs(deltaX+deltaY)/2);
+            star.setVelocity(distX, distY, Math.abs(deltaX+deltaY)/2);
 
             context.beginPath();
             context.strokeStyle = '#fffffff0';

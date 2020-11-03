@@ -103,8 +103,8 @@ function draw() {
             let curDist = Math.sqrt(Math.abs(distX)*Math.abs(distY));
             
             star.velocity = [
-                deltaX/curDist*star.speed*distX,
-                deltaY/curDist*star.speed*distY
+                deltaX/curDist*star.speed*(100-distX),
+                deltaY/curDist*star.speed*(100-distY)
             ];
 
             context.beginPath();

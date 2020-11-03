@@ -43,7 +43,7 @@ class Star {
     move() {
         this.x += this.velocity[0];
         this.y += this.velocity[1];
-        this.velocity = [Math.max(this.velocity[0]*0.7,this.origvelocity[0]), Math.max(this.velocity[1]*0.7,this.origvelocity[1])];
+        this.velocity = [Math.max(this.velocity[0]*0.95,this.origvelocity[0]), Math.max(this.velocity[1]*0.95,this.origvelocity[1])];
 
         if (this.x <= 0)
             this.x = canvas.width;
